@@ -5,26 +5,21 @@ public class SistemadeNotas {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Digite sua primeira nota: ");
-        double nota1 = scanner.nextDouble();
-
-        System.out.println("Digite sua segumda nota: ");
-        double nota2 = scanner.nextDouble();
-
-        System.out.println("Digite sua terceira nota: ");
-        double nota3 = scanner.nextDouble();
+        double nota1 = lerNotavalida(scanner, "Digite sua primeira nota: ");
+        double nota2 = lerNotavalida(scanner, "Digite sua segunda nota: ");
+        double nota3 = lerNotavalida(scanner, "Digite sua terceira nota: ");
 
         double media = calcularMedia(nota1, nota2, nota3);
         String verficarSituacao = verificarSituacao(media);
 
-        System.out.println("Média: " + media);
+        System.out.println("\nMédia: " + media);
         System.out.println("Resultado: " + verficarSituacao);
 
         scanner.close();
 
     }
 
-    public static double lerNotaInvalida(Scanner scanner, String mensagem) {
+    public static double lerNotavalida(Scanner scanner, String mensagem) {
         double nota;
 
         while (true) {
