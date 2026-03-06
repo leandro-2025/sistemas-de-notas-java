@@ -1,16 +1,23 @@
+package app;
+
+import service.SistemaNotasService;
+
 import java.util.Scanner;
 
 public class SistemadeNotas {
 
     public static void main(String[] args) {
+
+        SistemaNotasService service = new SistemaNotasService();
+
         Scanner scanner = new Scanner(System.in);
 
         double nota1 = lerNotavalida(scanner, "Digite sua primeira nota: ");
         double nota2 = lerNotavalida(scanner, "Digite sua segunda nota: ");
         double nota3 = lerNotavalida(scanner, "Digite sua terceira nota: ");
 
-        double media = calcularMedia(nota1, nota2, nota3);
-        String verficarSituacao = verificarSituacao(media);
+        double media = service.calcularMedia(nota1, nota2, nota3);
+        String verficarSituacao = service.verificarSituacao(media);
 
         System.out.println("\nMédia: " + media);
         System.out.println("Resultado: " + verficarSituacao);
